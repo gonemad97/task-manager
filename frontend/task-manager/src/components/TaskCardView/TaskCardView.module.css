@@ -1,0 +1,25 @@
+
+.center__container {
+    max-width: 55rem;
+    margin-inline: auto;
+}
+
+.container__view {
+    display: flex;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* max-width: 30rem; */
+    max-height: 30rem;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+    margin: 3rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #5a5a5a;
+    font-family: Poppins;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

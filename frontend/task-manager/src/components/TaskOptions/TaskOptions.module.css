@@ -1,0 +1,8 @@
+.task_options__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+    font-family: Poppins;
+}
