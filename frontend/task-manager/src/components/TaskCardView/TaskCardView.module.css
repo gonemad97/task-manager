@@ -23,3 +23,23 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+.center_logo {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+
+.add_tasks_logo {
+    transform: scale(0.6);
+    margin-bottom: auto;
+}
+
+.no_tasks {
+    color: white;
+    text-align: center;
+    font-family: Poppins;
+    transform: scale(1.7);
+
+}

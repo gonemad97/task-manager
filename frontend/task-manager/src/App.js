@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import TaskCardView from './components/TaskCardView/TaskCardView';
 import TaskOptions from './components/TaskOptions/TaskOptions';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -27,8 +28,11 @@ function App() {
   return (
     <div className={classes.App}>
       <Header/>
-      <TaskOptions tasks={tasks} setTasks={setTasks}/>
-      <TaskCardView tasks={tasks} setTasks={setTasks}/>
+      <div className={classes.task_components}>
+        <TaskOptions tasks={tasks} setTasks={setTasks}/>
+        <TaskCardView tasks={tasks} setTasks={setTasks}/>
+      </div>
+      <Footer/>
     </div>
   );
 }

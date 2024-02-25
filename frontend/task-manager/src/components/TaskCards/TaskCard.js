@@ -53,11 +53,11 @@ const TaskCard = (props) => {
     aria-expanded={open} variant='' size=''>
       {expandButton}
     </Button>
-      <Collapse in={open}>
-        <div id="collapse-text">
-          {props.task.description}
-        </div>
-      </Collapse>
+    <Collapse in={open}>
+      <div id="collapse-text">
+        {props.task.description}
+      </div>
+    </Collapse>
     </>
   }
 

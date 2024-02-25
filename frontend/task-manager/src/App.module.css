@@ -8,3 +8,8 @@
   min-height: 100vh;
 }
 
+.task_components {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
