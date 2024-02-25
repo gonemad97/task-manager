@@ -8,13 +8,14 @@ import classes from './TaskCard.module.css'
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import { IoTrashOutline } from "react-icons/io5";
 import Modal from 'react-bootstrap/Modal';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 
 const TaskCard = (props) => {
   const [open, setOpen] = useState(false);
   const [completed, setCompleted] = useState(false);
-  // const [fade, setFade] = useState(true);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isSmallExploding, setIsSmallExploding] = React.useState(false);
 
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
@@ -63,6 +64,7 @@ const TaskCard = (props) => {
 
   const handleCompletedTasks = async(e) => {
     var completedStatus = e.currentTarget.checked;
+
     var url = "http://127.0.0.1:5000/tasks/" + taskId;
     setCompleted(completedStatus);
     props.task.completed = completedStatus;
@@ -75,7 +77,6 @@ const TaskCard = (props) => {
           'Content-Type': 'application/json'
         }
       });
-      // removeCard(taskId);
 
       setTimeout(() => {
           removeCard(taskId);
@@ -83,6 +84,13 @@ const TaskCard = (props) => {
     }, 1000);
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  const handleConfetti = (value) => {
+    if(value === false) {
+      console.log("confetti",value)
+      setIsSmallExploding(!isSmallExploding);
     }
   }
 
@@ -107,8 +115,6 @@ const TaskCard = (props) => {
   }
 
   return (
-    // <Fade in={fade}>
-    //   <div id="delete-fade-text">
       <Card className={classes.card}>
         <Card.Body className={classes.card_body}>
 
@@ -126,8 +132,6 @@ const TaskCard = (props) => {
                 <Button variant="secondary" onClick={handleCloseDeleteModal}>
                   Keep It!
                 </Button>
-                {/* <Button variant="danger" aria-controls="delete-fade-text" 
-                aria-expanded={fade} onClick={()=>{handleDeleteTask(); setFade(false)}}> */}
                 <Button variant="danger" onClick={handleDeleteTask}>
                   Delete
                 </Button>
@@ -146,7 +150,9 @@ const TaskCard = (props) => {
                   className='checkbox'
                   checked = {props.task.completed}
                   onChange={(e) => {handleCompletedTasks(e)}}
+                  onClick={() => {handleConfetti(props.task.completed)}}
                 />
+                {isSmallExploding && <ConfettiExplosion force={0.4} duration={2200} particleCount={30} width={400}/>}
               </Form>
             </div>
           </div>
@@ -161,8 +167,6 @@ const TaskCard = (props) => {
           </div>
         </Card.Body>
       </Card>
-    //   </div>
-    // </Fade>
   )
 }
 
