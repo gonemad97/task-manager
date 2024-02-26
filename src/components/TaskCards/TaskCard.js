@@ -9,7 +9,6 @@ import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import { IoTrashOutline } from "react-icons/io5";
 import Modal from "react-bootstrap/Modal";
 import ConfettiExplosion from "react-confetti-explosion";
-import FadeIn from "react-fade-in/lib/FadeIn";
 
 const TaskCard = (props) => {
   const [open, setOpen] = useState(false);
