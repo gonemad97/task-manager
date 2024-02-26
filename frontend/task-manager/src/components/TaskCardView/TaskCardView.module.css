@@ -1,83 +1,80 @@
-
 .center__container {
-    /* max-width: 55rem;
+  /* max-width: 55rem;
     max-height: 55rem; */
-    margin-inline: auto;
+  margin-inline: auto;
 }
 
 .container__view {
-    display: flex;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    /* max-width: 70rem; */
-    max-height: 28rem;
-    align-items: center;
-    gap: 2rem;
-    flex-direction: column;
-    margin: 3rem;
-    padding: 3rem;
-    border-radius: 1rem;
-    background-color: #064663;
-    font-family: Poppins;
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* max-width: 70rem; */
+  max-height: 28rem;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+  margin: 3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  background-color: #064663;
+  font-family: Poppins;
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .center_logo {
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .add_tasks_logo {
-    transform: scale(0.6);
-    /* margin-bottom: auto; */
+  transform: scale(0.6);
+  /* margin-bottom: auto; */
 }
 
 .no_tasks {
-    color: white;
-    text-align: center;
-    font-family: Poppins;
-    transform: scale(1.7);
+  color: white;
+  text-align: center;
+  font-family: Poppins;
+  transform: scale(1.7);
 }
-
 
 /* media queries for small, medium, large, extra large devices */
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
-    /* No changes */
+  /* No changes */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
-    .container__view {
-        max-width: 25rem;
-        gap: 2rem;
-        margin: 1rem;
-        padding: 2rem;
-    }
+  .container__view {
+    max-width: 25rem;
+    gap: 2rem;
+    margin: 1rem;
+    padding: 2rem;
+  }
 
-    .no_tasks {
-        transform: scale(1.6);
-    }
+  .no_tasks {
+    transform: scale(1.6);
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
-    .container__view {
-        max-width: 15rem;
-        max-height: 12rem;
-        gap: 1.5rem;
-        margin: 1rem;
-        padding: 1rem;
-    }
+  .container__view {
+    max-width: 15rem;
+    max-height: 12rem;
+    gap: 1.5rem;
+    margin: 1rem;
+    padding: 1rem;
+  }
 
-    .no_tasks {
-        transform: scale(1.3);
-    }
+  .no_tasks {
+    transform: scale(1.3);
+  }
 }

@@ -1,107 +1,105 @@
 .card {
-    background-color: rgb(212, 208, 208);
-    border-radius: 1rem;
-    width: 35rem;
-    font: Poppins;
+  background-color: rgb(212, 208, 208);
+  border-radius: 1rem;
+  width: 35rem;
+  font: Poppins;
 }
 
 .checkbox {
-	width: 100%;
+  width: 100%;
 }
 
-input[type='checkbox'] { 
-    transform: scale(1.5); 
-    outline: 1px solid #064663;
+input[type="checkbox"] {
+  transform: scale(1.5);
+  outline: 1px solid #064663;
 }
 
 .card_body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: auto;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: auto;
+  gap: 1rem;
 }
 
 .card_body_row_1 {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .task_children_3 {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .task_children_2 {
-    min-width: 0;
-    margin-right: auto;
+  min-width: 0;
+  margin-right: auto;
 }
 
 .task_children_1 {
-    margin-right: 5px;
-    margin-left: -15px;
+  margin-right: 5px;
+  margin-left: -15px;
 }
 
 .card_body_row_2 {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .delete_task {
-    transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .delete_task :hover {
-    color: red;
+  color: red;
 }
 
 .expand_descr {
-    margin-right: 5px;
-    margin-left: -15px;
-    transform: scale(1.5); 
+  margin-right: 5px;
+  margin-left: -15px;
+  transform: scale(1.5);
 }
 
 .date {
-    font-size: small;
+  font-size: small;
 }
 
 /* media queries for small, medium, large, extra large devices */
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
-    /* No changes */
+  /* No changes */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    /* No changes */
+  /* No changes */
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
-    .card {
-        width: 22rem;
-    }
+  .card {
+    width: 22rem;
+  }
 
-    input[type='checkbox'] { 
-        transform: scale(1.3); 
-    }
+  input[type="checkbox"] {
+    transform: scale(1.3);
+  }
 
-    .card_body {
-        gap: 1rem;
-    }
-
+  .card_body {
+    gap: 1rem;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
-    .card {
-        width: 12rem;
-    }
+  .card {
+    width: 12rem;
+  }
 
-    input[type='checkbox'] { 
-        transform: scale(1); 
-    }
+  input[type="checkbox"] {
+    transform: scale(1);
+  }
 
-    .card_body {
-        gap: 0.5rem;
-    }
-
+  .card_body {
+    gap: 0.5rem;
+  }
 }

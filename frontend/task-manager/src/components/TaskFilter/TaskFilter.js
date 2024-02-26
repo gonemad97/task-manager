@@ -1,25 +1,22 @@
-import React from 'react'
-import { useState } from 'react';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import './TaskFilter.module.css'
-
+import React from "react";
+import { useState } from "react";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
 
 const TaskFilter = (props) => {
-  const [radioValue, setRadioValue] = useState('1');
+  const [radioValue, setRadioValue] = useState("1");
 
   const radios = [
-    { name: 'To Do', value: '1' },
-    { name: 'Completed', value: '2' },
+    { name: "To Do", value: "1" },
+    { name: "Completed", value: "2" },
   ];
 
   const handleTaskFetch = (value) => {
     var url = null;
     setRadioValue(value);
-    if (value === '1') {
+    if (value === "1") {
       url = "http://127.0.0.1:5000/tasks?status=incomplete";
-    }
-    else {
+    } else {
       url = "http://127.0.0.1:5000/tasks?status=complete";
     }
 
@@ -27,18 +24,18 @@ const TaskFilter = (props) => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        props.setTasks(data)
+        props.setTasks(data);
       } catch (error) {
         console.log("error", error);
       }
     };
 
     fetchData();
-  }
+  };
 
   return (
     <>
-    {/* separate styling is required to update css of react-bootstrap buttons */}
+      {/* separate styling is required to update css of react-bootstrap buttons */}
       <style type="text/css">
         {`
           .btn-size {
@@ -62,24 +59,24 @@ const TaskFilter = (props) => {
       </style>
 
       <ButtonGroup>
-          {radios.map((radio, idx) => (
-            <ToggleButton
-              key={idx}
-              id={`radio-${idx}`}
-              type="radio"
-              variant={idx % 2 ? 'outline-success' : 'outline-danger'}
-              size="size"
-              name="radio"
-              value={radio.value}
-              checked={radioValue === radio.value}
-              onChange={(e) => handleTaskFetch(e.currentTarget.value)}
-            >
-              {radio.name}
-            </ToggleButton>
-          ))}
+        {radios.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio-${idx}`}
+            type="radio"
+            variant={idx % 2 ? "outline-success" : "outline-danger"}
+            size="size"
+            name="radio"
+            value={radio.value}
+            checked={radioValue === radio.value}
+            onChange={(e) => handleTaskFetch(e.currentTarget.value)}
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
       </ButtonGroup>
     </>
-  )
-}
+  );
+};
 
-export default TaskFilter
+export default TaskFilter;
