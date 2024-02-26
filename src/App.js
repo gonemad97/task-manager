@@ -9,7 +9,8 @@ function App() {
 
   //fetch incomplete tasks by default
   useEffect(() => {
-    const url = "/tasks?status=incomplete";
+    const url =
+      "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks?status=incomplete";
 
     const fetchData = async () => {
       try {

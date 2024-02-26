@@ -72,7 +72,9 @@ const TaskCard = (props) => {
   const handleCompletedTasks = async (e) => {
     var completedStatus = e.currentTarget.checked;
 
-    var url = "/tasks/" + taskId;
+    var url =
+      "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks/" +
+      taskId;
     setCompleted(completedStatus);
     props.task.completed = completedStatus;
     console.log("new status", completedStatus);
@@ -103,9 +105,13 @@ const TaskCard = (props) => {
 
   const handleDeleteTask = async () => {
     try {
-      await fetch("/tasks/" + taskId, {
-        method: "DELETE",
-      });
+      await fetch(
+        "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks/" +
+          taskId,
+        {
+          method: "DELETE",
+        }
+      );
 
       removeCard(taskId);
     } catch (err) {

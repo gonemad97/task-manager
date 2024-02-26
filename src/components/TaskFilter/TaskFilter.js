@@ -15,9 +15,11 @@ const TaskFilter = (props) => {
     var url = null;
     setRadioValue(value);
     if (value === "1") {
-      url = "/tasks?status=incomplete";
+      url =
+        "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks?status=incomplete";
     } else {
-      url = "/tasks?status=complete";
+      url =
+        "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks?status=complete";
     }
 
     const fetchData = async () => {
