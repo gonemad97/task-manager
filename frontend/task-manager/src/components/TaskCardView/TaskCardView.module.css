@@ -1,7 +1,7 @@
 
 .center__container {
-    max-width: 55rem;
-    max-height: 55rem;
+    /* max-width: 55rem;
+    max-height: 55rem; */
     margin-inline: auto;
 }
 
@@ -9,15 +9,15 @@
     display: flex;
     overflow-y: scroll;
     overflow-x: hidden;
-    /* max-width: 30rem; */
-    max-height: 30rem;
+    /* max-width: 70rem; */
+    max-height: 28rem;
     align-items: center;
     gap: 2rem;
     flex-direction: column;
     margin: 3rem;
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 1rem;
-    background-color: #5a5a5a;
+    background-color: #064663;
     font-family: Poppins;
 }
 

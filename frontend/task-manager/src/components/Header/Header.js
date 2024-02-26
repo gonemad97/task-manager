@@ -8,11 +8,10 @@ const Header = () => {
     <nav>
         <div className={classes.flex__container}>
           <img className={classes.logo} src={nsLogo} alt="logo"></img>
-          <a className={classes.logout} href="/"><b>Log Out</b></a>
+          {/* <a className={classes.logout} href="/"><b>Log Out</b></a> */}
+          <h5 className={classes.title}><b>Task Manager</b></h5>
+          <div></div>
         </div>
-
-        <h5 className={classes.title}><b>Task Manager</b></h5>
-
         <hr></hr>      
     </nav>
   )

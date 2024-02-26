@@ -4,8 +4,10 @@
 
 .App {
   /* text-align: center; */
-  background-color: #252830;
+  background-color: #041C32;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .task_components {

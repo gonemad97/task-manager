@@ -43,6 +43,7 @@ const TaskFilter = (props) => {
             id={`radio-${idx}`}
             type="radio"
             variant={idx % 2 ? 'outline-success' : 'outline-danger'}
+            size="lg"
             name="radio"
             value={radio.value}
             checked={radioValue === radio.value}

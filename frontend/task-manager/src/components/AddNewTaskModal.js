@@ -77,8 +77,8 @@ const AddNewTaskModal = (props) => {
   
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Add New Task +
+        <Button variant="" size="lg" style={{backgroundColor:'#4dc7fc'}} onClick={handleShow}>
+          Add Task +
         </Button>
   
         <Modal
