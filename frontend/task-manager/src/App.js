@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import TaskCardView from './components/TaskCardView/TaskCardView';
 import TaskOptions from './components/TaskOptions/TaskOptions';
-import Footer from './components/Footer/Footer';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -32,7 +31,6 @@ function App() {
         <TaskOptions tasks={tasks} setTasks={setTasks}/>
         <TaskCardView tasks={tasks} setTasks={setTasks}/>
       </div>
-      <Footer/>
     </div>
   );
 }

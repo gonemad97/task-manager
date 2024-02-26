@@ -9,7 +9,7 @@ const Header = () => {
         <div className={classes.flex__container}>
           <img className={classes.logo} src={nsLogo} alt="logo"></img>
           {/* <a className={classes.logout} href="/"><b>Log Out</b></a> */}
-          <h5 className={classes.title}><b>Task Manager</b></h5>
+          <h4 className={classes.title}><b>Task Manager</b></h4>
           <div></div>
         </div>
         <hr></hr>      

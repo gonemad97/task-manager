@@ -6,3 +6,25 @@
     gap: 5rem;
     font-family: Poppins;
 }
+
+/* media queries for small, medium, large, extra large devices */
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    /* No changes */
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* No changes */
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    /* No changes */
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .task_options__container {
+        gap: 3rem;
+    }
+
+}

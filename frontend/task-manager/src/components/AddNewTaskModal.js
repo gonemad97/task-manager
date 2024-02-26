@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -77,7 +77,31 @@ const AddNewTaskModal = (props) => {
   
     return (
       <>
-        <Button variant="" size="lg" style={{backgroundColor:'#4dc7fc'}} onClick={handleShow}>
+        {/* separate styling is required to update css of react-bootstrap buttons */}
+        <style type="text/css">
+          {`
+            .btn-size {
+              padding: 1rem 1.5rem;
+              font-size: 1.1rem;
+            }
+
+            @media screen and (min-width: 320px) and (max-width: 480px) {
+              .btn-size {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.7rem;
+              }
+            }
+
+            @media screen and (min-width: 481px) and (max-width: 767px) {
+              .btn-size {
+                padding: 1rem 1rem;
+                font-size: 1rem;
+              }
+            }
+
+          `}
+        </style>
+        <Button variant="" size="size" style={{backgroundColor:'#4dc7fc'}} onClick={handleShow}>
           Add Task +
         </Button>
   
