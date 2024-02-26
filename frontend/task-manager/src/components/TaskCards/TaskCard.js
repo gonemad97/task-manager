@@ -24,11 +24,9 @@ const TaskCard = (props) => {
   let taskId = props.task.id;
   console.log(title, props.task.completed);
 
-  // console.log(taskId);
-
   function convertDate(date) {
     var d_arr = date.split("-");
-    var newdate = d_arr[1] + "-" + d_arr[0] + "-" + d_arr[2];
+    var newdate = d_arr[1] + "-" + d_arr[2] + "-" + d_arr[0];
     return newdate;
   }
 
@@ -75,7 +73,7 @@ const TaskCard = (props) => {
   const handleCompletedTasks = async (e) => {
     var completedStatus = e.currentTarget.checked;
 
-    var url = "http://127.0.0.1:5000/tasks/" + taskId;
+    var url = "/tasks/" + taskId;
     setCompleted(completedStatus);
     props.task.completed = completedStatus;
     console.log("new status", completedStatus);
@@ -106,7 +104,7 @@ const TaskCard = (props) => {
 
   const handleDeleteTask = async () => {
     try {
-      await fetch("http://127.0.0.1:5000/tasks/" + taskId, {
+      await fetch("/tasks/" + taskId, {
         method: "DELETE",
       });
 

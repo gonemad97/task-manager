@@ -9,7 +9,7 @@ function App() {
 
   //fetch incomplete tasks by default
   useEffect(() => {
-    const url = "http://127.0.0.1:5000/tasks?status=incomplete";
+    const url = "/tasks?status=incomplete";
 
     const fetchData = async () => {
       try {

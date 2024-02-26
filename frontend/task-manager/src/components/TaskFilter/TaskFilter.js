@@ -15,9 +15,9 @@ const TaskFilter = (props) => {
     var url = null;
     setRadioValue(value);
     if (value === "1") {
-      url = "http://127.0.0.1:5000/tasks?status=incomplete";
+      url = "/tasks?status=incomplete";
     } else {
-      url = "http://127.0.0.1:5000/tasks?status=complete";
+      url = "/tasks?status=complete";
     }
 
     const fetchData = async () => {

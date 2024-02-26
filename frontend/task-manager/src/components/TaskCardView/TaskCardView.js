@@ -46,18 +46,7 @@ const TaskCardView = (props) => {
     );
   }
 
-  return (
-    <>{taskCardDisplay}</>
-    // <div className={classes.center__container}>
-    //   {/* <div className='container__view'> */}
-    //   <FadeIn delay={80} className={classes.container__view}>
-    //         {allTasks.map((task,index) => {
-    //         return <TaskCard key={task.id} task={task} tasks={props.tasks} setTasks={props.setTasks}/>
-    //         })}
-    //       </FadeIn>
-    //   {/* </div> */}
-    // </div>
-  );
+  return <>{taskCardDisplay}</>;
 };
 
 export default TaskCardView;

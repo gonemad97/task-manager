@@ -49,7 +49,7 @@ const AddNewTaskModal = (props) => {
     }
 
     try {
-      let res = await fetch("http://127.0.0.1:5000/tasks", {
+      let res = await fetch("/tasks", {
         method: "POST",
         body: JSON.stringify(body),
         headers: {
@@ -57,9 +57,7 @@ const AddNewTaskModal = (props) => {
         },
       });
 
-      let taskRefreshResult = await fetch(
-        "http://127.0.0.1:5000/tasks?status=incomplete"
-      );
+      let taskRefreshResult = await fetch("/tasks?status=incomplete");
       let tasksJson = await taskRefreshResult.json();
       props.setTasks(tasksJson);
 
