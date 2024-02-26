@@ -1,6 +1,7 @@
 
 .center__container {
     max-width: 55rem;
+    max-height: 55rem;
     margin-inline: auto;
 }
 

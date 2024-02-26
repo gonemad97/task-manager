@@ -11,5 +11,5 @@
 .task_components {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 3rem;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -14,15 +14,31 @@ const AddNewTaskModal = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
-
+    //setting minimum date (today) before which date picker should show grayed out dates
     const minDate = () => {
       const today = new Date().toISOString().split('T')[0];
       return today;
     };
 
+    const validateForm = () => {
+      if(title.length === 0) {
+        alert("Title cannot be empty.");
+        return;
+      }
+      if(title.length > 200) {
+        alert("Too many characters, Title cannot be over 200 characters.");
+        return;
+      }
+      if(description && description.length > 400) {
+        alert("Too many characters, Description cannot be over 400 characters.");
+        return;
+      }
+
+      //only if there are no more alerts, the form will modal will close after submission
+      handleClose();
+    }
+
     const handleSubmit = async(e) => {
-      e.preventDefault();
       let body = {
         title: title
       }
@@ -50,6 +66,7 @@ const AddNewTaskModal = (props) => {
         setTitle("");
         setDescription("");
         setDate("");
+
       } else {
         console.log(e.message)
       }
@@ -77,7 +94,7 @@ const AddNewTaskModal = (props) => {
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="addTaskForm.ControlTitle">
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="text" placeholder="Buy groceries" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <Form.Control type="text" placeholder="Buy groceries" value={title} required onChange={(e) => setTitle(e.target.value)}/>
               </Form.Group>
               <Form.Group className="mb-3" controlId="addTaskForm.ControlDescription">
                 <Form.Label>Description</Form.Label>
@@ -93,7 +110,7 @@ const AddNewTaskModal = (props) => {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="success" type="submit" onClick={(e) => {handleSubmit(e); handleClose();}} >Create</Button>
+            <Button variant="success" type="submit" onClick={(e) => {handleSubmit(e); validateForm();}} >Create</Button>
           </Modal.Footer>
         </Modal>
       </>
