@@ -49,15 +49,20 @@ const AddNewTaskModal = (props) => {
     }
 
     try {
-      let res = await fetch("/tasks", {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      let res = await fetch(
+        "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks",
+        {
+          method: "POST",
+          body: JSON.stringify(body),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      let taskRefreshResult = await fetch("/tasks?status=incomplete");
+      let taskRefreshResult = await fetch(
+        "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks?status=incomplete"
+      );
       let tasksJson = await taskRefreshResult.json();
       props.setTasks(tasksJson);
 
