@@ -12,7 +12,7 @@ const TaskCardView = (props) => {
     taskCardDisplay = (
       <>
         <div className={classes.center__container}>
-          <FadeIn delay={80} className={classes.container__view}>
+          <FadeIn delay={150} className={classes.container__view}>
             {allTasks.map((task) => {
               return (
                 <TaskCard

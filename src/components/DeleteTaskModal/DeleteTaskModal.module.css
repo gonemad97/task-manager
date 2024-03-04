@@ -1,0 +1,7 @@
+.delete_task {
+  transform: scale(1.1);
+}
+
+.delete_task :hover {
+  color: red;
+}

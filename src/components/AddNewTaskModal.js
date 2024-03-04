@@ -6,9 +6,14 @@ import Form from "react-bootstrap/Form";
 
 const AddNewTaskModal = (props) => {
   const [show, setShow] = useState(false);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState(undefined);
-  const [date, setDate] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [description, setDescription] = useState(undefined);
+  // const [date, setDate] = useState("");
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    date: "",
+  });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -20,15 +25,15 @@ const AddNewTaskModal = (props) => {
   };
 
   const validateForm = () => {
-    if (title.length === 0) {
+    if (form.title.length === 0) {
       alert("Title cannot be empty.");
       return;
     }
-    if (title.length > 200) {
+    if (form.title.length > 200) {
       alert("Too many characters, Title cannot be over 200 characters.");
       return;
     }
-    if (description && description.length > 400) {
+    if (form.description && form.description.length > 400) {
       alert("Too many characters, Description cannot be over 400 characters.");
       return;
     }
@@ -37,15 +42,22 @@ const AddNewTaskModal = (props) => {
     handleClose();
   };
 
+  const handleFormChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = async (e) => {
     let body = {
-      title: title,
+      title: form.title,
     };
-    if (description) {
-      body.description = description;
+    if (form.description) {
+      body.description = form.description;
     }
-    if (date) {
-      body.deadline = date;
+    if (form.date) {
+      body.deadline = form.date;
     }
 
     try {
@@ -67,9 +79,11 @@ const AddNewTaskModal = (props) => {
       props.setTasks(tasksJson);
 
       if (res.status === 200 || res.status === 201) {
-        setTitle("");
-        setDescription("");
-        setDate("");
+        setForm({
+          title: "",
+          description: "",
+          date: "",
+        });
       } else {
         console.log(e.message);
       }
@@ -129,9 +143,10 @@ const AddNewTaskModal = (props) => {
               <Form.Control
                 type="text"
                 placeholder="Buy groceries"
-                value={title}
+                value={form.title}
+                name="title"
                 required
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={handleFormChange}
               />
             </Form.Group>
             <Form.Group
@@ -143,17 +158,19 @@ const AddNewTaskModal = (props) => {
                 as="textarea"
                 rows={3}
                 placeholder="Don't forget tomatoes!"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={form.description}
+                name="description"
+                onChange={handleFormChange}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="addTaskForm.ControlDate">
               <Form.Label>Due By</Form.Label>
               <Form.Control
                 type="date"
-                value={date}
+                value={form.date}
+                name="date"
                 min={minDate()}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={handleFormChange}
               />
             </Form.Group>
           </Form>

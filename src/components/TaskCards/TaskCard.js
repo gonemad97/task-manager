@@ -9,15 +9,16 @@ import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import { IoTrashOutline } from "react-icons/io5";
 import Modal from "react-bootstrap/Modal";
 import ConfettiExplosion from "react-confetti-explosion";
+import DeleteTaskModal from "../DeleteTaskModal/DeleteTaskModal";
 
 const TaskCard = (props) => {
   const [open, setOpen] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  // const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isSmallExploding, setIsSmallExploding] = React.useState(false);
 
-  const handleCloseDeleteModal = () => setShowDeleteModal(false);
-  const handleShowDeleteModal = () => setShowDeleteModal(true);
+  // const handleCloseDeleteModal = () => setShowDeleteModal(false);
+  // const handleShowDeleteModal = () => setShowDeleteModal(true);
 
   let title = props.task.title;
   let taskId = props.task.id;
@@ -103,22 +104,6 @@ const TaskCard = (props) => {
     }
   };
 
-  const handleDeleteTask = async () => {
-    try {
-      await fetch(
-        "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks/" +
-          taskId,
-        {
-          method: "DELETE",
-        }
-      );
-
-      removeCard(taskId);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   // to remove a card from the current view if deleted/moved from incomplete to complete or vice versa
   const removeCard = (id) => {
     props.setTasks(props.tasks.filter((task) => task.id !== id));
@@ -129,30 +114,12 @@ const TaskCard = (props) => {
       <Card.Body className={classes.card_body}>
         <div className={classes.card_body_row_1}>
           <div className={classes.task_children_1}>
-            <Button
-              variant=""
-              size=""
-              className={classes.delete_task}
-              onClick={handleShowDeleteModal}
-            >
-              <IoTrashOutline />
-            </Button>
+            <DeleteTaskModal
+              task={props.task}
+              tasks={props.tasks}
+              setTasks={props.setTasks}
+            />
           </div>
-
-          <Modal show={showDeleteModal} onHide={handleCloseDeleteModal}>
-            <Modal.Header closeButton>
-              <Modal.Title>Delete Task</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>This will delete "{title}"</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseDeleteModal}>
-                Keep It!
-              </Button>
-              <Button variant="danger" onClick={handleDeleteTask}>
-                Delete
-              </Button>
-            </Modal.Footer>
-          </Modal>
 
           <div className={classes.task_children_2}>
             <Card.Title>{title}</Card.Title>
