@@ -61,21 +61,33 @@ const TaskFilter = (props) => {
       </style>
 
       <ButtonGroup>
-        {radios.map((radio, idx) => (
-          <ToggleButton
-            key={idx}
-            id={`radio-${idx}`}
-            type="radio"
-            variant={idx % 2 ? "outline-success" : "outline-danger"}
-            size="size"
-            name="radio"
-            value={radio.value}
-            checked={radioValue === radio.value}
-            onChange={(e) => handleTaskFetch(e.currentTarget.value)}
-          >
-            {radio.name}
-          </ToggleButton>
-        ))}
+        <ToggleButton
+          key={0}
+          id={`radio-1`}
+          type="radio"
+          variant="outline-success"
+          size="size"
+          name="radio"
+          value={radios[0].value}
+          checked={radioValue === radios[0].value}
+          onChange={(e) => handleTaskFetch(e.currentTarget.value)}
+        >
+          {radios[0].name}
+        </ToggleButton>
+
+        <ToggleButton
+          key={1}
+          id={`radio-2`}
+          type="radio"
+          variant="outline-danger"
+          size="size"
+          name="radio"
+          value={radios[1].value}
+          checked={radioValue === radios[1].value}
+          onChange={(e) => handleTaskFetch(e.currentTarget.value)}
+        >
+          {radios[1].name}
+        </ToggleButton>
       </ButtonGroup>
     </>
   );

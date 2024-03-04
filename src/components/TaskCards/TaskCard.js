@@ -6,23 +6,15 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import classes from "./TaskCard.module.css";
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
-import { IoTrashOutline } from "react-icons/io5";
-import Modal from "react-bootstrap/Modal";
 import ConfettiExplosion from "react-confetti-explosion";
 import DeleteTaskModal from "../DeleteTaskModal/DeleteTaskModal";
 
 const TaskCard = (props) => {
   const [open, setOpen] = useState(false);
-  const [completed, setCompleted] = useState(false);
-  // const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isSmallExploding, setIsSmallExploding] = React.useState(false);
-
-  // const handleCloseDeleteModal = () => setShowDeleteModal(false);
-  // const handleShowDeleteModal = () => setShowDeleteModal(true);
 
   let title = props.task.title;
   let taskId = props.task.id;
-  console.log(title, props.task.completed);
 
   function convertDate(date) {
     var d_arr = date.split("-");
@@ -76,9 +68,8 @@ const TaskCard = (props) => {
     var url =
       "https://ns-task-manager-backend-1915b81e16e9.herokuapp.com/tasks/" +
       taskId;
-    setCompleted(completedStatus);
     props.task.completed = completedStatus;
-    console.log("new status", completedStatus);
+
     try {
       await fetch(url, {
         method: "PUT",
@@ -90,7 +81,6 @@ const TaskCard = (props) => {
 
       setTimeout(() => {
         removeCard(taskId);
-        console.log("starting removal");
       }, 1000);
     } catch (err) {
       console.log(err);
@@ -99,7 +89,6 @@ const TaskCard = (props) => {
 
   const handleConfetti = (value) => {
     if (value === false) {
-      console.log("confetti", value);
       setIsSmallExploding(!isSmallExploding);
     }
   };

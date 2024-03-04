@@ -5,7 +5,6 @@ import noTasksAvailableLogo from "../../assets/no_tasks.png";
 
 const TaskCardView = (props) => {
   let allTasks = props.tasks;
-  console.log(allTasks.length);
 
   let taskCardDisplay = null;
   if (allTasks.length > 0) {
